@@ -180,9 +180,6 @@
 						that.initCropper();
 						
 						that.hideLoader();
-
-						if (that.options.onAfterImgUpload) that.options.onAfterImgUpload.call(that);
-						
 					}
 					
 					if(response.status=='error'){
@@ -191,6 +188,7 @@
 						setTimeout( function(){ that.reset(); },2000)
 					}
 					
+					if (that.options.onAfterImgUpload) that.options.onAfterImgUpload.call(that, response);
 
 				});
 				
@@ -467,7 +465,7 @@
 						that.obj.append('<p style="width:100%; height:100%;>'+response.message+'</p>">');
 					}
 					
-					if (that.options.onAfterImgCrop) that.options.onAfterImgCrop.call(that);
+					if (that.options.onAfterImgCrop) that.options.onAfterImgCrop.call(that, response);
 				 
 				});
 		},
