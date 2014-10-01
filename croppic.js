@@ -20,6 +20,8 @@
 			cropUrl:'',
 			cropData:{},
 			outputUrlId:'',
+			width: null,
+			height: null,
 			//styles
 			imgEyecandy:true,
 			imgEyecandyOpacity:0.2,
@@ -78,8 +80,8 @@
 		init: function () {
 			var that = this;
 			
-			that.objW = that.obj.width();
-			that.objH = that.obj.height();
+			that.objW = that.options.width  || that.obj.width();
+			that.objH = that.options.height || that.obj.height();
 			
 			if( $.isEmptyObject(that.defaultImg)){ that.defaultImg = that.obj.find('img'); }
 			
