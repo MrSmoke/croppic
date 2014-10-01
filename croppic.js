@@ -164,8 +164,7 @@
                     contentType: false,
                     processData: false,
                     type: 'POST'
-				}).always(function(data){
-					response = jQuery.parseJSON(data);
+				}).always(function(response){
 					if(response.status=='success'){
 						
 						that.imgInitW = that.imgW = response.width;
@@ -443,8 +442,7 @@
                 contentType: false,
                 processData: false,
                 type: 'POST'
-				}).always(function(data){
-					response = jQuery.parseJSON(data);
+				}).always(function(response){
 					if(response.status=='success'){
 						
 						that.imgEyecandy.hide();
