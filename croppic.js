@@ -38,7 +38,8 @@
 			onImgDrag: null,
 			onImgZoom: null,
 			onBeforeImgCrop: null,
-			onAfterImgCrop: null
+			onAfterImgCrop: null,
+			onImgRemove: null
 		};
 
 		// OVERWRITE DEFAULT OPTIONS
@@ -147,6 +148,8 @@
 					}
 					
 					if(that.options.outputUrlId !== ''){	$('#'+that.options.outputUrlId).val('');	}
+					
+					if (that.options.onImgRemove) that.options.onImgRemove.call(that);
 				
 				});	
 			
