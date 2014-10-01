@@ -22,6 +22,8 @@
 			outputUrlId:'',
 			width: null,
 			height: null,
+			scaleToFill: true,
+			imgUrl: null,
 			//styles
 			imgEyecandy:true,
 			imgEyecandyOpacity:0.2,
@@ -36,8 +38,7 @@
 			onImgDrag: null,
 			onImgZoom: null,
 			onBeforeImgCrop: null,
-			onAfterImgCrop: null,
-			scaleToFill: true
+			onAfterImgCrop: null
 		};
 
 		// OVERWRITE DEFAULT OPTIONS
@@ -85,6 +86,15 @@
 			that.objH = that.options.height || that.obj.height();
 			
 			if( $.isEmptyObject(that.defaultImg)){ that.defaultImg = that.obj.find('img'); }
+			
+			if(that.options.imgUrl) {
+				var $croppedImage = $('<img class="croppedImg" src="' + that.options.imgUrl + '">');
+
+				that.obj.append($croppedImage);
+				that.croppedImg = $croppedImage;
+
+				$('#' + that.options.outputUrlId).val(that.options.imgUrl);
+			}
 			
 			that.createImgUploadControls();
 			that.bindImgUploadControl();
